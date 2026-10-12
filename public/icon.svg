@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#02142b"/>
+      <stop offset="100%" stop-color="#000814"/>
+    </linearGradient>
+    <linearGradient id="border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00a8ff"/>
+      <stop offset="100%" stop-color="#005fb8"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <!-- Background Icon Box -->
+  <rect x="24" y="24" width="464" height="464" rx="96" fill="url(#bg)" stroke="url(#border)" stroke-width="12"/>
+  
+  <!-- Subtle Internal Grid Gridlines -->
+  <line x1="80" y1="256" x2="432" y2="256" stroke="#00a8ff" stroke-opacity="0.1" stroke-width="4" stroke-dasharray="8 8"/>
+  <line x1="256" y1="80" x2="256" y2="432" stroke="#00a8ff" stroke-opacity="0.1" stroke-width="4" stroke-dasharray="8 8"/>
+
+  <!-- Iconic "Ps" Lettering -->
+  <g filter="url(#glow)">
+    <text x="110" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="240" font-weight="800" fill="url(#textGrad)" letter-spacing="-8">Ps</text>
+  </g>
+  
+  <!-- Subtle Accent Sparkle -->
+  <path d="M 400 120 L 406 138 L 424 144 L 406 150 L 400 168 L 394 150 L 376 144 L 394 138 Z" fill="#38bdf8"/>
+</svg>

@@ -17,7 +17,8 @@ import {
   Layers as LayersIcon,
   Eye,
   FileImage,
-  ChevronDown
+  ChevronDown,
+  Monitor
 } from 'lucide-react';
 
 interface TopMenuBarProps {
@@ -32,6 +33,7 @@ interface TopMenuBarProps {
   onLoadSample: (type: 'nebula' | 'cyberpunk') => void;
   onSaveProject: () => void;
   onExport: () => void;
+  onOpenPCExport?: () => void;
   onNewLayer: () => void;
   onDuplicateLayer: () => void;
   onDeleteLayer: () => void;
@@ -64,6 +66,7 @@ export const TopMenuBar: React.FC<TopMenuBarProps> = ({
   onLoadSample,
   onSaveProject,
   onExport,
+  onOpenPCExport,
   onNewLayer,
   onDuplicateLayer,
   onDeleteLayer,
@@ -175,6 +178,17 @@ export const TopMenuBar: React.FC<TopMenuBarProps> = ({
               >
                 <span>Export As... (PNG/JPG/SVG)</span>
                 <span className="text-[10px] text-[#888888] font-mono">Ctrl+Shift+E</span>
+              </button>
+              <div className="h-[1px] bg-[#3a3a3a] my-1" />
+              <button 
+                onClick={() => handleAction(onOpenPCExport || onExport)} 
+                className="w-full flex items-center justify-between px-3 py-1.5 hover:bg-[#005fb8] hover:text-white text-left transition-colors text-[#38bdf8]"
+              >
+                <span className="flex items-center gap-1.5">
+                  <Monitor className="w-3.5 h-3.5 text-[#38bdf8]" />
+                  Install / Export for PC (.exe)...
+                </span>
+                <span className="text-[9px] bg-[#005fb8] text-white px-1 py-0.2 rounded font-semibold font-mono">PC</span>
               </button>
             </div>
           )}
@@ -584,6 +598,15 @@ export const TopMenuBar: React.FC<TopMenuBarProps> = ({
         >
           <Sparkles className="w-3.5 h-3.5 text-[#e0f2fe]" />
           <span>Generative AI</span>
+        </button>
+
+        <button
+          onClick={onOpenPCExport || onExport}
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#222b35] hover:bg-[#2c3744] border border-[#234975] text-[#93c5fd] hover:text-white font-medium transition-colors text-[11px]"
+          title="Install app on Windows PC or export executable package (.exe / .bat)"
+        >
+          <Monitor className="w-3.5 h-3.5 text-[#38bdf8]" />
+          <span>PC (.exe)</span>
         </button>
 
         <button

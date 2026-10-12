@@ -94,6 +94,7 @@ export default function App() {
   const [activePanelTab, setActivePanelTab] = useState<string>('layers');
   const [isNewDocOpen, setIsNewDocOpen] = useState(false);
   const [isExportOpen, setIsExportOpen] = useState(false);
+  const [exportTab, setExportTab] = useState<'standard' | 'pc-exe'>('standard');
   const [filterModal, setFilterModal] = useState<{ isOpen: boolean; type: string }>({
     isOpen: false,
     type: 'gaussian-blur',
@@ -891,8 +892,18 @@ export default function App() {
         onNewDocument={() => setIsNewDocOpen(true)}
         onOpenImage={() => fileInputRef.current?.click()}
         onLoadSample={handleLoadSample}
-        onSaveProject={() => setIsExportOpen(true)}
-        onExport={() => setIsExportOpen(true)}
+        onSaveProject={() => {
+          setExportTab('standard');
+          setIsExportOpen(true);
+        }}
+        onExport={() => {
+          setExportTab('standard');
+          setIsExportOpen(true);
+        }}
+        onOpenPCExport={() => {
+          setExportTab('pc-exe');
+          setIsExportOpen(true);
+        }}
         onNewLayer={handleNewLayer}
         onDuplicateLayer={handleDuplicateLayer}
         onDeleteLayer={handleDeleteLayer}
@@ -1098,6 +1109,7 @@ export default function App() {
         canvasWidth={canvasWidth}
         canvasHeight={canvasHeight}
         layers={layers}
+        initialTab={exportTab}
       />
     </div>
   );
