@@ -1,0 +1,6 @@
+{
+  "name": "Adobe Photoshop Web",
+  "description": "Professional browser-based creative image editor featuring multi-layer editing, selections, blend modes, filters, adjustments, vector shapes, history stack, and full export capabilities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
